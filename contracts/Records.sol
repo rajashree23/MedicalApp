@@ -44,7 +44,7 @@ function loginPatient(address patient) public {
 
 //doctor database
 function loginDoctor(address doctor) public{
- require(!olddoctors[doctor]," old Doctor");
+//  require(!olddoctors[doctor]," old Doctor");
   doctors[doctor] = Doctor(doctor);
   doctorAcc.push(doctor)-1;
   olddoctors[doctor] = true;
@@ -53,7 +53,7 @@ function loginDoctor(address doctor) public{
 
 //give permission to doctor to access patient's address
 function createPermission(address patient) public{
-  require(!doctors[msg.sender].pat[patient],"permission not needed");
+  
   doctors[msg.sender].pat[patient] = true;
   emit docPat(patient,true);
 }
@@ -63,5 +63,8 @@ function patientRecord(address patient, string memory hash)public{
   patients[patient].patRecords.push(hash);
 }
 
+function verify(address patient) public returns(bool){
+  return doctors[msg.sender].pat[patient];
+}
 
 }
