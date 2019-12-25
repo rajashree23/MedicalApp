@@ -12,14 +12,14 @@ contract('Records', ([patient, doctor]) => {
         medicalRecord = await MedicalRecord.deployed()
     })
 
-    describe('patientDetails', async () => {
-        let result;
-        it('new patient added successfully', async () => {
-            result = await medicalRecord.loginPatient({ from: patient })
-            console.log(result)
-        })
+    // describe('patientDetails', async () => {
+    //     let result;
+    //     it('new patient added successfully', async () => {
+    //         result = await medicalRecord.loginPatient({ from: patient })
+    //         console.log(result)
+    //     })
 
-    })
+    // })
     describe('doctorDetails', async () => {
         it('new doctor added successfully', async () => {
             result = await medicalRecord.loginDoctor({ from: doctor })
